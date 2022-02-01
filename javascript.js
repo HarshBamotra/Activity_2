@@ -116,7 +116,7 @@ function calculate()
         var choice = op.options[op.selectedIndex].value;
         if(choice == "add1")
             {
-                result =  input1+input2;
+                result =  parseInt(input1)+parseInt(input2);
             }
         else if(choice == "sub1")
             {
