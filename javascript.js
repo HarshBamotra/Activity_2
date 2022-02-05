@@ -46,6 +46,65 @@ function codeChanger()
             }
     }
 
+var steps = 0;
+function next()
+{
+    var c = result;
+    steps++;
+
+    if(steps == 1)
+    {
+        var step1 = document.getElementsByClassName("1")
+        for(var i = 0 ; i < step1.length ; i++)
+        {
+            step1[i].style.color="red";
+        }
+        document.getElementById('r1_1').innerHTML = input1;
+    }
+    if(steps == 2) 
+    {
+        var step2 = document.getElementsByClassName("2")
+        for(var i = 0 ; i < step2.length ; i++)
+        {
+            step2[i].style.color="red";
+        }
+        var step1 = document.getElementsByClassName("1")
+        for(var i = 0 ; i < step1.length ; i++)
+        {
+            step1[i].style.color="black";
+        }
+        document.getElementById("r2_2").innerHTML = input2;
+    }
+    if(steps == 3)
+    {
+        var step3 = document.getElementsByClassName("3")
+        for(var i = 0 ; i < step3.length ; i++)
+            step3[i].style.color="red";
+        var step2 = document.getElementsByClassName("2")
+        for(var i = 0 ; i < step2.length ; i++)
+            step2[i].style.color="black";
+        document.getElementById("r3_3").innerHTML = c;
+    }
+    if(steps == 4)
+    {
+        var step4 = document.getElementsByClassName("4")
+        for(var i = 0 ; i < step4.length ; i++)
+            step4[i].style.color="red";
+        var step3 = document.getElementsByClassName("3")
+        for(var i = 0 ; i < step3.length ; i++)
+            step3[i].style.color="black";
+        document.getElementById("r4").innerHTML = c;
+        document.getElementById("r5_2").innerHTML = c;
+    }
+    if(steps == 5)
+    {
+        var step4 = document.getElementsByClassName("4")
+        for(var i = 0 ; i < step4.length ; i++)
+            step4[i].style.color="red";
+        alert("Program executed successfully!!");
+    }
+}
+
 function reset()
     {
         document.getElementById("input_1").value="";
@@ -65,7 +124,7 @@ function reset()
 function start()
     {
         calculate();
-        const t1 = setTimeout(function(){
+        /*const t1 = setTimeout(function(){
             var x = document.getElementsByClassName("4")
             for(var i=0 ; i<x.length ; i++)
                 x[i].style.color="black";
@@ -103,7 +162,7 @@ function start()
             var x = document.getElementsByClassName("4")
             for(var i=0 ; i<x.length ; i++)
                 x[i].style.color="red";
-        } , 8000);        
+        } , 8000);   */     
     }
 
 function calculate()
