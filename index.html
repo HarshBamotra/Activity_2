@@ -4,7 +4,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
     <script src="javascript.js"></script>
     <header class="header">
       <a href="https://www.andcollege.du.ac.in/"
@@ -15,20 +15,22 @@
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <!--<div class="heading">Python Virtual Lab</div>-->
     </header>
-   
+  
     <!-- start here pank -->
     <div class="container-fluid">
         <div class="block1" style="margin-top: 5em">
-            <div class="header1">Problem?</div>
+            <div class="header1">Problem</div>
             <br />
             <div class="select">
-              <select  onchange="codeChanger()"  class="form-control" id="option" required="required">
-                <option value="null">-- Select option --</option>
+              <select onchange="codeChanger()"  class="form-control" id="option" required="required">
+                <option value="null">Type of Arithmetic Operation</option>
                 <option value="add1">Addition</option>
                 <option value="sub1">Subtraction</option>
                 <option value="mul1">Multiplication</option>
                 <option value="div1">Division</option>
+                <option value="fact">Factorial</option>
               </select>
             </div>
             <br />
@@ -36,26 +38,32 @@
               <input
                 type="number"
                 class="form-control input-sm"
+                id="input_0"
+                placeholder="Enter a number"
+              /><br />
+              <input
+                type="number"
+                class="form-control input-sm"
                 id="input_1"
                 placeholder="Enter the First Number"
-              /><br />
+              style="display: none;"/><br />
               <input
                 type="number"
                 class="form-control input-sm"
                 id="input_2"
                 placeholder="Enter the Second Number"
-              /><br />
+                style="display: none;"/><br />
               <button onclick="start()" class="btn btn-default" id="btn_1">Start</button
               ><br />
-              <button class="btn btn-primary" id="btn_2">Next</button>
+              <button onclick="next()" class="btn btn-primary" id="btn_2">Next</button>
               <button onclick="reset()" class="btn btn-primary" id="btn_3">Reset</button>
             </div>
           </div>
 
       <div class="block3">
-        <div class="header2">Step Execute</div>
+        <div class="header2">Python Code</div>
         <div class="pre">
-          <div class="step1" id="add" style="display: none; text-align: left">
+          <div class="step1" id="add" style="display: none; text-align: center">
             <br /><br /><b>
               <p class="1">a = Input('Enter a Number')</p>
               <p class="2">b = Input('Enter a Number')</p>
@@ -63,7 +71,7 @@
               <p class="4">print("The Addition is :",c)</p></b
             >
           </div>
-          <div class="step1" id="sub" style="display: none; text-align: left">
+          <div class="step1" id="sub" style="display: none; text-align: center">
             <br /><br /><b>
               <p class="1">a = Input('Enter a Number')</p>
               <p class="2">b = Input('Enter a Number')</p>
@@ -71,7 +79,7 @@
               <p class="4">print("The Subtraction is :",c)</p></b
             >
           </div>
-          <div class="step1" id="mul" style="display: none; text-align: left">
+          <div class="step1" id="mul" style="display: none; text-align: center">
             <br /><br /><b>
               <p class="1" >a = Input('Enter a Number')</p>
               <p class="2" >b = Input('Enter a Number')</p>
@@ -79,12 +87,21 @@
               <p class="4" >print("The Multiplication is :",c)</p></b
             >
           </div>
-          <div class="step1" id="div" style="display: none; text-align: left">
+          <div class="step1" id="div" style="display: none; text-align: center">
             <br /><br /><b>
               <p class="1">a = Input('Enter a Number')</p>
               <p class="2">b = Input('Enter a Number')</p>
               <p class="3">c = a / b</p>
               <p class="4">print("The Division is :",c)</p></b
+            >
+          </div>
+          <div class="step1" id="fact" style="display: none;">
+            <br /><br /><b>
+              <p class="1">n = Input('Enter a Number')</p>
+              <p class="2">fact = 1</p>
+              <p class="3">for i in range(1,(n+1)):</p>
+              <p class="3">fact = fact * i </p>
+              <p class="4">print("Factorial of " n " : " fact)</p></b
             >
           </div>
         </div>
@@ -100,6 +117,7 @@
             </tr>
             <tr>
               <td id="r1" style="display: block">a :</td>
+              <td id="n1" style="display: none">n :</td>
               <td id="r1_1"></td>
             </tr>
             <tr>
@@ -108,10 +126,11 @@
             </tr>
             <tr>
               <td id="r3" style="display: block">c :</td>
+              <td id="n1_1" style="display: none">fact :</td>
               <td id="r3_3"></td>
             </tr>
             <tr>
-              <td id="r4">Output :</td>
+              <td id="r4">Output :-</td>
             </tr>
             <tr>
               <td id="r5_1"></td>
