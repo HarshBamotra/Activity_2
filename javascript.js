@@ -1,4 +1,4 @@
-var result ,input0, input1 , input2;
+var result , input1 , input2;
 
 function codeChanger()
     {
@@ -6,9 +6,6 @@ function codeChanger()
         var choice = op.options[op.selectedIndex].value;
         if(choice == "add1")
             {
-                document.getElementById("input_0").style.display = "none";
-                document.getElementById("input_1").style.display = "block";
-                document.getElementById("input_2").style.display = "block";
                 document.getElementById("sub").style.display = "none";
                 document.getElementById("mul").style.display = "none";
                 document.getElementById("div").style.display = "none";
@@ -17,9 +14,6 @@ function codeChanger()
             }
         else if(choice == "sub1")
             {
-                document.getElementById("input_0").style.display = "none";
-                document.getElementById("input_1").style.display = "block";
-                document.getElementById("input_2").style.display = "block";
                 document.getElementById("mul").style.display = "none";
                 document.getElementById("div").style.display = "none";
                 document.getElementById("add").style.display = "none";
@@ -28,9 +22,6 @@ function codeChanger()
             }
         else if(choice == "mul1")
             {
-                document.getElementById("input_0").style.display = "none";
-                document.getElementById("input_1").style.display = "block";
-                document.getElementById("input_2").style.display = "block";
                 document.getElementById("div").style.display = "none";
                 document.getElementById("add").style.display = "none";
                 document.getElementById("sub").style.display = "none";
@@ -39,31 +30,11 @@ function codeChanger()
             }
         else if(choice == "div1")
             {
-                document.getElementById("input_0").style.display = "none";
-                document.getElementById("input_1").style.display = "block";
-                document.getElementById("input_2").style.display = "block";
                 document.getElementById("add").style.display = "none";
                 document.getElementById("sub").style.display = "none";
                 document.getElementById("mul").style.display = "none";
                 document.getElementById("div").style.display = "block";
                 document.getElementById("r5_1").innerHTML = "The Division is :";
-            }
-        else if(choice == "fact")
-            {
-                document.getElementById("input_0").style.display = "block";
-                document.getElementById("input_1").style.display = "none";
-                document.getElementById("input_2").style.display = "none";
-                document.getElementById("add").style.display = "none";
-                document.getElementById("sub").style.display = "none";
-                document.getElementById("mul").style.display = "none";
-                document.getElementById("div").style.display = "none";
-                document.getElementById("fact").style.display = "block";
-                document.getElementById("r1").style.display = "none";
-                document.getElementById("r2").style.display = "none";
-                document.getElementById("r3").style.display = "none";
-                document.getElementById("n1").style.display = "block";
-                document.getElementById("n1_1").style.display = "block";
-                document.getElementById("r5_1").innerHTML = "The Factorial is :";
             }
         else
             {
@@ -102,7 +73,6 @@ function next()
         {
             step1[i].style.color="black";
         }
-        document.getElementById('r1_1').innerHTML = input0;
         document.getElementById("r2_2").innerHTML = input2;
     }
     if(steps == 3)
@@ -132,6 +102,8 @@ function next()
         for(var i = 0 ; i < step4.length ; i++)
             step4[i].style.color="red";
         alert("Program executed successfully!!");
+        for(var i = 0 ; i < step4.length ; i++)
+            step4[i].style.color="black";
     }
 }
 
@@ -153,6 +125,20 @@ function reset()
 
 function start()
     {
+        var op = document.getElementById("option");
+        var choice = op.options[op.selectedIndex].value;
+        if(choice == 'null')
+        {
+            alert('One of the arithmetic operation must be selected.');
+        }
+        input1 = document.getElementById("input_1").value;
+        input2 = document.getElementById("input_2").value;
+
+        if(input1 == "" || input2 == "")
+        {
+            alert('Enter both the numbers.');
+        }
+
         calculate();
         /*const t1 = setTimeout(function(){
             var x = document.getElementsByClassName("4")
@@ -192,13 +178,12 @@ function start()
             var x = document.getElementsByClassName("4")
             for(var i=0 ; i<x.length ; i++)
                 x[i].style.color="red";
-        } , 8000);   */     
+        } , 8000);    */
     }
 
 function calculate()
     {
         result = 0;
-        input0 = document.getElementById("input_0").value;
         input1 = document.getElementById("input_1").value;
         input2 = document.getElementById("input_2").value;
 
@@ -218,33 +203,15 @@ function calculate()
             }
         else if(choice == "div1")
             {
-                if (input2 == 0)
+                if(input2 == 0)
                 {
                     alert('Division by zero is not possible.');
                 }
                 result = input1/input2;
             }
-        else if(choice == "fact")
-            {
-                if (input0 < 0)
-                {
-                    alert('Factorial for negative number does not exist.');
-                }
-                else if(input0 == 0)
-                {
-                    result = 1;
-                }
-                else{
-                    result = 1;
-                    for(i=1; i <=input0; i++)
-                    {
-                        result = result * i;
-                    }
-                }
-            }
         else
             {
-                result = 0;
+                result=0;
             }
 
         console.log(result);
